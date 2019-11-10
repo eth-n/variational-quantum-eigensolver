@@ -1,0 +1,7 @@
+   => Loading Basis Set <=
+
+    Name: STO-3G
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1-2 entry H          line    19 file //anaconda3/envs/p4env/share/psi4/basis/sto-3g.gbs 
+

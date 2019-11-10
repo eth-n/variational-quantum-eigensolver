@@ -1,0 +1,18 @@
+
+memory 600 mb
+
+molecule HeH {
+    0 1
+    He
+    --
+    1 1
+    H 1 0.5
+}
+
+set {
+    basis sto-3g
+    basis_guess sto-3g
+    guess sad
+}
+
+properties('scf')
