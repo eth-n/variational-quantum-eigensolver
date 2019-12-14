@@ -43,11 +43,11 @@ def UCCSD_operator(ref_str):
     num_virt_spin_orbitals = len(virtual_spin_orbitals)
 
     for occ_idx in range(num_occ_spin_orbitals):
-        annihilation_outter = []
+        annihilation_outer = []
         for occ_idx_runner in range(occ_idx+1, num_occ_spin_orbitals):
             annihilation_inner = []
             for virt_idx in range(num_virt_spin_orbitals):
-                creation_outter = []
+                creation_outer = []
                 for virt_idx_runner in range(virt_idx+1, num_virt_spin_orbitals):
                     # print(virtual_spin_orbitals[virt_idx_runner],
                     #       virtual_spin_orbitals[virt_idx],
@@ -63,16 +63,22 @@ def UCCSD_operator(ref_str):
                                 "a_{}".format(occupied_spin_orbitals[occ_idx_runner]),
                                 "a_{}".format(occupied_spin_orbitals[occ_idx])
                     )
+                    adjoint_operator = ("a_{}^dagger".format(occupied_spin_orbitals[occ_idx]),
+                                        "a_{}^dagger".format(occupied_spin_orbitals[occ_idx_runner]),
+                                        "a_{}".format(virtual_spin_orbitals[virt_idx]),
+                                        "a_{}".format(virtual_spin_orbitals[virt_idx_runner])
+                    )
                     print(operator)
-                    creation_outter.append(operator)
+                    print(adjoint_operator)
+                    creation_outer.append(operator)
                     double_excitations_flat.append(operator)
                     # print(" ".join(operator))
                 if virt_idx+1 != num_virt_spin_orbitals:
-                    annihilation_inner.append(creation_outter)
+                    annihilation_inner.append(creation_outer)
             if virt_idx != num_virt_spin_orbitals:
-                annihilation_outter.append(annihilation_inner)
+                annihilation_outer.append(annihilation_inner)
         if occ_idx+1 != num_occ_spin_orbitals:
-            double_excitations.append(annihilation_outter)
+            double_excitations.append(annihilation_outer)
 
     # for x in range(len(double_excitations)):
     #     print(double_excitations[x])
@@ -80,8 +86,8 @@ def UCCSD_operator(ref_str):
 
     print()
     print("Double excitation operators")
-    for x in double_excitations_flat:
-        print(" ".join(x))
+    for op in double_excitations_flat:
+        print(" ".join(op))
     print()
 
     # print(double_ex_arr)
