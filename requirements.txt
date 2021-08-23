@@ -52,7 +52,7 @@ nbformat==4.4.0
 ndg-httpsclient==0.5.1
 nest-asyncio==1.0.0
 networkx==2.3
-notebook==6.1.5
+notebook==6.4.1
 ntlm-auth==1.4.0
 numpy==1.17.4
 openfermion==0.10.0
