@@ -54,7 +54,7 @@ nest-asyncio==1.0.0
 networkx==2.3
 notebook==6.1.5
 ntlm-auth==1.4.0
-numpy==1.17.4
+numpy==1.22.0
 openfermion==0.10.0
 openfermioncirq==0.3.0
 openfermionpyscf==0.4
